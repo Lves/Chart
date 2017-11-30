@@ -1,0 +1,16 @@
+source 'https://github.com/CocoaPods/Specs.git'
+
+platform :ios, '9.0'
+
+use_frameworks!
+
+
+def pods
+	pod 'Alamofire'
+	pod 'IQKeyboardManagerSwift'
+end
+
+target 'Chart' do
+    pods
+end
+
