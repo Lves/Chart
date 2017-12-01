@@ -13,8 +13,8 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     @IBOutlet weak var scrollView: UIScrollView!
     var collectionView: UICollectionView!
     var dataArray:[[String]] = []
-    var cols:Int = 5
-    var rows:Int = 4
+    var cols:Int = 1
+    var rows:Int = 2
     var collectionSections:Int {
         get{
             return rows + 1
@@ -25,8 +25,9 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
             return cols + 1
         }
     }
+    
     //计步器
-    var rowsStepper:UIStepper?
+    var rowsStepper:UIStepper? 
     var colsStepper:UIStepper?
     
     struct Constant {
@@ -34,6 +35,7 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         static let kCellHight:CGFloat = 45
         static let kCellSpace:CGFloat = 0.5
         static let kFloatViewSize:CGFloat = 10
+        static let kSetpperMargin:CGFloat = 5
     }
     
     override func viewDidLoad() {
@@ -79,20 +81,22 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         
         collectionView.reloadData()
         //列计数器
-        let stepperFrame = CGRect(x: collectionView.frame.maxX, y: 0, width: 50, height: 30)
-        rowsStepper = UIStepper(frame: stepperFrame)
-        rowsStepper?.minimumValue = 1
-        rowsStepper?.maximumValue = 100
-        rowsStepper?.value = Double(cols)
-        rowsStepper?.stepValue = 1
-        rowsStepper?.addTarget(self, action: #selector(stepperValueChanged(sender:)), for: .valueChanged)
-        scrollView.addSubview(rowsStepper!)
+        let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: 0, width: 50, height: 30)
+        colsStepper = UIStepper(frame: stepperFrame)
+        colsStepper?.tintColor = UIColor.gray
+        colsStepper?.minimumValue = 1
+        colsStepper?.maximumValue = 100
+        colsStepper?.value = Double(cols)
+        colsStepper?.stepValue = 1
+        colsStepper?.addTarget(self, action: #selector(stepperValueChanged(sender:)), for: .valueChanged)
+        scrollView.addSubview(colsStepper!)
         //行计数器
-        let rowStepperFrame = CGRect(x: collectionView.frame.maxY, y: 0, width: 50, height: 30)
+        let rowStepperFrame = CGRect(x:0 , y: collectionView.frame.maxY + Constant.kSetpperMargin, width: 40, height: 30)
         rowsStepper = UIStepper(frame: rowStepperFrame)
+        rowsStepper?.tintColor = UIColor.gray
         rowsStepper?.minimumValue = 1
         rowsStepper?.maximumValue = 100
-        rowsStepper?.value = Double(cols)
+        rowsStepper?.value = Double(rows)
         rowsStepper?.stepValue = 1
         rowsStepper?.addTarget(self, action: #selector(stepperValueChanged(sender:)), for: .valueChanged)
         scrollView.addSubview(rowsStepper!)
@@ -100,20 +104,27 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     }
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return rows+1
+        return collectionSections
     }
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return cols+1
+        return collectionCols
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:TextFieldCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextFieldCollectionViewCell", for: indexPath) as! TextFieldCollectionViewCell
         cell.backgroundColor = UIColor.white
+        cell.textField.delegate = self
         let rowArray = dataArray[indexPath.section]
         cell.textField.textColor = UIColor.black
         if indexPath.section != 0 && indexPath.row != 0 {
-             cell.textField.placeholder = "\(indexPath.section) -- \(indexPath.row)"
+            cell.textField.placeholder = "\(indexPath.section) -- \(indexPath.row)"
         }else {
             cell.textField.placeholder = rowArray[indexPath.row]
+        }
+        let str:String = rowArray[indexPath.row]
+        if str.count > 0 {
+            cell.textField.text = str
+        }else {
+            cell.textField.text = ""
         }
         return cell
     }
@@ -124,39 +135,71 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         return UIEdgeInsets.zero
     }
     @objc func stepperValueChanged(sender:UIStepper) {
-        cols = Int(sender.value)
-        updateUI()
+        view.endEditing(true)
+        if sender == colsStepper {
+            cols = Int(sender.value)
+            updateUI(isCols: true)
+        }else if sender == rowsStepper{
+            rows = Int(sender.value)
+            updateUI(isCols: false)
+        }
     }
     
     //MARK: - updateUI
-    func updateUI()  {
-        //修改列
-        for index in 0..<dataArray.count {
-            var array = dataArray[index]
-            if collectionCols > array.count { //增加了
-                if index == 0 { //修改列头
-                    array.append("第\(array.count)列")
-                }else {
-                    array.append("")
-                }
-                dataArray[index] = array
-            }else if collectionCols < array.count { //减少了
-                array.remove(at: array.count-1)
-            }
-            
-            
-        }
+    func updateUI(isCols:Bool)  {
         let frame = CGRect(x: 0, y: 0,
                            width: CGFloat(collectionCols)*(Constant.kCellWidth + Constant.kCellSpace),
                            height: CGFloat(collectionSections)*(Constant.kCellHight + Constant.kCellSpace))
         collectionView.frame = frame
-        let stepperFrame = CGRect(x: collectionView.frame.maxX, y: 0, width: 50, height: 30)
-        rowsStepper?.frame = stepperFrame
-        scrollView.contentSize = CGSize(width: collectionView.frame.maxX + 160, height: collectionView.frame.maxY + 50)
-        collectionView.reloadData()
-        
+        scrollView.contentSize = CGSize(width: collectionView.frame.maxX + 110, height: collectionView.frame.maxY + 50)
+        if isCols {//修改列
+            for index in 0..<dataArray.count {
+                var array = dataArray[index]
+                if collectionCols > array.count { //增加了
+                    if index == 0 { //修改列头
+                        array.append("第\(array.count)列")
+                    }else {
+                        array.append("")
+                    }
+                    dataArray[index] = array
+                }else if collectionCols < array.count { //减少了
+                    array.remove(at: array.count-1)
+                    dataArray[index] = array
+                }
+            }
+            let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: 0, width: 50, height: 30)
+            colsStepper?.frame = stepperFrame
+            collectionView.reloadData()
+            if let colsStepper = colsStepper ,colsStepper.frame.maxX > scrollView.frame.width {
+                scrollView.setContentOffset(CGPoint(x: colsStepper.frame.maxX - view.frame.width, y: 0), animated: true)
+            }
+            
+        }else {
+            if collectionSections > dataArray.count { //增加了
+                var rowArray = Array(repeating: "", count: collectionCols)
+                rowArray[0] = "第\(dataArray.count)行"
+                dataArray.append(rowArray)
+            }else {
+                dataArray.remove(at: dataArray.count - 1)
+            }
+            let stepperFrame = CGRect(x: 0, y: collectionView.frame.maxY + Constant.kSetpperMargin, width: 50, height: 30)
+            rowsStepper?.frame = stepperFrame
+            collectionView.reloadData()
+            
+            if let rowsStepper = rowsStepper ,rowsStepper.frame.maxY > scrollView.frame.height {
+                scrollView.setContentOffset(CGPoint(x: 0, y: rowsStepper.frame.maxY - scrollView.frame.height), animated: true)
+            }
+        }
     }
+}
 
-
+extension ViewController: UITextFieldDelegate {
+    public func textFieldDidEndEditing(_ textField: UITextField) {
+        if let cell = textField.superview?.superview as? TextFieldCollectionViewCell ,let indexPath = collectionView.indexPath(for: cell){
+            var rowArray = dataArray[indexPath.section]
+            rowArray[indexPath.row] = textField.text ?? ""
+            dataArray[indexPath.section] = rowArray
+        }
+    }
 }
 
