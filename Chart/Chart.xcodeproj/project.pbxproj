@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6C54ED2A1FD0F3FB00D9C26E /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54ED291FD0F3FB00D9C26E /* FloatView.swift */; };
 		6C6915131FCFFF440010619C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6915121FCFFF440010619C /* AppDelegate.swift */; };
 		6C6915151FCFFF440010619C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6915141FCFFF440010619C /* ViewController.swift */; };
 		6C6915181FCFFF440010619C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C6915161FCFFF440010619C /* Main.storyboard */; };
@@ -32,6 +33,7 @@
 
 /* Begin PBXFileReference section */
 		41053A73B4167F60F7EEFF10 /* Pods_Chart.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Chart.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6C54ED291FD0F3FB00D9C26E /* FloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatView.swift; sourceTree = "<group>"; };
 		6C69150F1FCFFF440010619C /* Chart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6915121FCFFF440010619C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C6915141FCFFF440010619C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +105,7 @@
 				6C69151E1FCFFF440010619C /* Info.plist */,
 				6C6915241FD004150010619C /* TextFieldCollectionViewCell.swift */,
 				6C6915251FD004150010619C /* TextFieldCollectionViewCell.xib */,
+				6C54ED291FD0F3FB00D9C26E /* FloatView.swift */,
 			);
 			path = Chart;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 				6C6915261FD004150010619C /* TextFieldCollectionViewCell.swift in Sources */,
 				6C6915151FCFFF440010619C /* ViewController.swift in Sources */,
 				6C6915131FCFFF440010619C /* AppDelegate.swift in Sources */,
+				6C54ED2A1FD0F3FB00D9C26E /* FloatView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
