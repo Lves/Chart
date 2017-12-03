@@ -8,6 +8,7 @@ use_frameworks!
 def pods
 	pod 'Alamofire'
 	pod 'IQKeyboardManagerSwift'
+    pod 'Charts'
 end
 
 target 'Chart' do

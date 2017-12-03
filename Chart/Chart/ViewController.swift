@@ -40,7 +40,7 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        title = "数据录入"
         
         //初始化数据
         for row in 0...rows {
@@ -59,7 +59,22 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
             }
             dataArray.append(rowArray)
         }
-
+        //CollectionView
+        buildCollectionView()
+        collectionView.reloadData()
+        //列计数器
+        let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: 0, width: 50, height: 30)
+        colsStepper = steppView(frame: stepperFrame)
+        colsStepper?.value = Double(cols)
+        scrollView.addSubview(colsStepper!)
+        //行计数器
+        let rowStepperFrame = CGRect(x:0 , y: collectionView.frame.maxY + Constant.kSetpperMargin, width: 40, height: 30)
+        rowsStepper = steppView(frame: rowStepperFrame)
+        rowsStepper?.value = Double(rows)
+        scrollView.addSubview(rowsStepper!)
+        
+    }
+    func buildCollectionView()  {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
         layout.minimumLineSpacing = Constant.kCellSpace
@@ -70,7 +85,6 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         let frame = CGRect(x: 0, y: 0,
                            width: CGFloat(collectionCols)*(Constant.kCellWidth + Constant.kCellSpace),
                            height: CGFloat(collectionSections)*(Constant.kCellHight + Constant.kCellSpace))
-        
         collectionView = UICollectionView(frame: frame, collectionViewLayout: layout)
         collectionView.backgroundColor = UIColor.gray
         collectionView.dataSource = self
@@ -78,30 +92,21 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         collectionView.register(UINib(nibName: "TextFieldCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "TextFieldCollectionViewCell")
         scrollView.contentSize = CGSize(width: collectionView.frame.maxX + 160, height: collectionView.frame.maxY + 50)
         scrollView.addSubview(collectionView)
-        
-        collectionView.reloadData()
-        //列计数器
-        let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: 0, width: 50, height: 30)
-        colsStepper = UIStepper(frame: stepperFrame)
-        colsStepper?.tintColor = UIColor.gray
-        colsStepper?.minimumValue = 1
-        colsStepper?.maximumValue = 100
-        colsStepper?.value = Double(cols)
-        colsStepper?.stepValue = 1
-        colsStepper?.addTarget(self, action: #selector(stepperValueChanged(sender:)), for: .valueChanged)
-        scrollView.addSubview(colsStepper!)
-        //行计数器
-        let rowStepperFrame = CGRect(x:0 , y: collectionView.frame.maxY + Constant.kSetpperMargin, width: 40, height: 30)
-        rowsStepper = UIStepper(frame: rowStepperFrame)
-        rowsStepper?.tintColor = UIColor.gray
-        rowsStepper?.minimumValue = 1
-        rowsStepper?.maximumValue = 100
-        rowsStepper?.value = Double(rows)
-        rowsStepper?.stepValue = 1
-        rowsStepper?.addTarget(self, action: #selector(stepperValueChanged(sender:)), for: .valueChanged)
-        scrollView.addSubview(rowsStepper!)
-        
     }
+    
+    func steppView(frame:CGRect) -> UIStepper {
+        let stepper = UIStepper(frame: frame)
+        stepper.tintColor = UIColor.gray
+        stepper.minimumValue = 1
+        stepper.maximumValue = 100
+        
+        stepper.stepValue = 1
+        stepper.addTarget(self, action: #selector(stepperValueChanged(sender:)), for: .valueChanged)
+        return stepper
+    }
+    
+    
+    //MARK: - UICollectionView Delegate
 
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return collectionSections
@@ -191,6 +196,14 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
             }
         }
     }
+    //MARK: - Action
+    @IBAction func toLineChart(_ sender: Any) {
+        let lineChartVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LineChartViewController") as! LineChartViewController
+        lineChartVc.dataArray = dataArray
+        navigationController?.pushViewController(lineChartVc, animated: true)
+        
+    }
+    
 }
 
 extension ViewController: UITextFieldDelegate {
