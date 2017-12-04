@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+class LineChartEditViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
 
     @IBOutlet weak var scrollView: UIScrollView!
     var collectionView: UICollectionView!
@@ -123,9 +123,11 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         if indexPath.section != 0 && indexPath.row != 0 {
             cell.textField.placeholder = "\(indexPath.section) -- \(indexPath.row)"
             cell.backgroundColor = UIColor.white
+            cell.textField.keyboardType = .decimalPad
         }else {
             cell.textField.placeholder = rowArray[indexPath.row]
             cell.backgroundColor = UIColor(hex6:0xefefef)
+            cell.textField.keyboardType = .default
         }
         let str:String = rowArray[indexPath.row]
         if str.count > 0 {
@@ -209,7 +211,7 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     
 }
 
-extension ViewController: UITextFieldDelegate {
+extension LineChartEditViewController: UITextFieldDelegate {
     public func textFieldDidEndEditing(_ textField: UITextField) {
         if let cell = textField.superview?.superview as? TextFieldCollectionViewCell ,let indexPath = collectionView.indexPath(for: cell){
             var rowArray = dataArray[indexPath.section]
