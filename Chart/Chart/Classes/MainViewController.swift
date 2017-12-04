@@ -18,27 +18,26 @@ struct ColorTheme {
 }
 
 class MainViewController: UIViewController {
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = UIStatusBarStyle.lightContent
+    }
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         title = "首页"
-        
-        navigationController?.navigationBar.isTranslucent = false
-        navigationController?.navigationBar.barTintColor = ColorTheme.NavigationBar
-        navigationController?.navigationBar.setBackgroundImage(UIImage(color: ColorTheme.NavigationBar), for: .default)
-        
-//        navigationController?.navigationBar.shadowImage = UIImage(color: UIColor.white)
-        var font = UIFont.systemFont(ofSize: 17)
+
+        var font = UIFont.boldSystemFont(ofSize: 17)
         if #available(iOS 8.2, *) {
-            font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.light)
+            font = UIFont.systemFont(ofSize: 17, weight: UIFont.Weight.medium)
         }
         navigationController?.navigationBar.titleTextAttributes =
-            [NSAttributedStringKey.foregroundColor: ColorTheme.NavigationBarTitle,
+            [NSAttributedStringKey.foregroundColor: UIColor(hex6:0xfafafa),
              NSAttributedStringKey.font: font]
-        UITextView.appearance().tintColor = ColorTheme.TextFieldCursor;
-        UITextField.appearance().tintColor = ColorTheme.TextFieldCursor;
-
+       
+        
     }
 
 

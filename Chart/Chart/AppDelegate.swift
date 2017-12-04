@@ -16,9 +16,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        
         IQKeyboardManager.sharedManager().enable = true
-        
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = UIColor(hex6:0xfafafa)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(color: ColorTheme.NavigationBar), for: .default)
+
         return true
     }
 

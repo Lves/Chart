@@ -58,19 +58,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-um-Bfe" customClass="LineChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="375" height="375"/>
-                                <color key="backgroundColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EU1-YX-wqh">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-um-Bfe" customClass="LineChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <color key="backgroundColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="Unz-um-Bfe" secondAttribute="height" multiplier="1:1" id="2JI-d8-TXD"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="Unz-um-Bfe" secondAttribute="height" multiplier="1:1" id="2JI-d8-TXD"/>
+                                    <constraint firstItem="Unz-um-Bfe" firstAttribute="top" secondItem="EU1-YX-wqh" secondAttribute="top" id="8rg-ks-IJx"/>
+                                    <constraint firstAttribute="bottom" secondItem="Unz-um-Bfe" secondAttribute="bottom" constant="125" id="E91-tg-Mxz"/>
+                                    <constraint firstItem="Unz-um-Bfe" firstAttribute="leading" secondItem="EU1-YX-wqh" secondAttribute="leading" id="FxM-lg-oSr"/>
+                                    <constraint firstItem="Unz-um-Bfe" firstAttribute="centerX" secondItem="EU1-YX-wqh" secondAttribute="centerX" id="mpp-fc-hMC"/>
+                                    <constraint firstAttribute="trailing" secondItem="Unz-um-Bfe" secondAttribute="trailing" id="zSG-UD-uKr"/>
                                 </constraints>
-                            </view>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.95294117647058818" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.1843137255" green="0.20784313730000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Unz-um-Bfe" firstAttribute="top" secondItem="V4j-9w-Lpp" secondAttribute="top" id="EcS-pp-U5p"/>
-                            <constraint firstItem="Unz-um-Bfe" firstAttribute="leading" secondItem="V4j-9w-Lpp" secondAttribute="leading" id="cSP-ZF-6n7"/>
-                            <constraint firstItem="Unz-um-Bfe" firstAttribute="trailing" secondItem="V4j-9w-Lpp" secondAttribute="trailing" id="eZr-bk-sH9"/>
+                            <constraint firstItem="EU1-YX-wqh" firstAttribute="top" secondItem="kfN-Io-Vob" secondAttribute="top" id="dC4-9a-ude"/>
+                            <constraint firstItem="EU1-YX-wqh" firstAttribute="leading" secondItem="V4j-9w-Lpp" secondAttribute="leading" id="hgV-si-GoA"/>
+                            <constraint firstItem="V4j-9w-Lpp" firstAttribute="bottom" secondItem="EU1-YX-wqh" secondAttribute="bottom" id="kq6-sb-27A"/>
+                            <constraint firstItem="EU1-YX-wqh" firstAttribute="trailing" secondItem="V4j-9w-Lpp" secondAttribute="trailing" id="xHk-Xh-9q5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="V4j-9w-Lpp"/>
                     </view>

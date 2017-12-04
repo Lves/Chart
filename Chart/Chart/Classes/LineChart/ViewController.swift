@@ -13,8 +13,8 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     @IBOutlet weak var scrollView: UIScrollView!
     var collectionView: UICollectionView!
     var dataArray:[[String]] = []
-    var cols:Int = 1
-    var rows:Int = 2
+    var cols:Int = 3
+    var rows:Int = 1
     var collectionSections:Int {
         get{
             return rows + 1
@@ -63,7 +63,7 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
         buildCollectionView()
         collectionView.reloadData()
         //列计数器
-        let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: 0, width: 50, height: 30)
+        let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: Constant.kSetpperMargin, width: 50, height: 30)
         colsStepper = steppView(frame: stepperFrame)
         colsStepper?.value = Double(cols)
         scrollView.addSubview(colsStepper!)
@@ -116,14 +116,16 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell:TextFieldCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: "TextFieldCollectionViewCell", for: indexPath) as! TextFieldCollectionViewCell
-        cell.backgroundColor = UIColor.white
+        
         cell.textField.delegate = self
         let rowArray = dataArray[indexPath.section]
         cell.textField.textColor = UIColor.black
         if indexPath.section != 0 && indexPath.row != 0 {
             cell.textField.placeholder = "\(indexPath.section) -- \(indexPath.row)"
+            cell.backgroundColor = UIColor.white
         }else {
             cell.textField.placeholder = rowArray[indexPath.row]
+            cell.backgroundColor = UIColor(hex6:0xefefef)
         }
         let str:String = rowArray[indexPath.row]
         if str.count > 0 {
@@ -172,7 +174,7 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
                     dataArray[index] = array
                 }
             }
-            let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: 0, width: 50, height: 30)
+            let stepperFrame = CGRect(x: collectionView.frame.maxX + Constant.kSetpperMargin, y: Constant.kSetpperMargin, width: 50, height: 30)
             colsStepper?.frame = stepperFrame
             collectionView.reloadData()
             if let colsStepper = colsStepper ,colsStepper.frame.maxX > scrollView.frame.width {
@@ -198,6 +200,7 @@ class ViewController:UIViewController,UICollectionViewDelegate,UICollectionViewD
     }
     //MARK: - Action
     @IBAction func toLineChart(_ sender: Any) {
+        view.endEditing(true)
         let lineChartVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LineChartViewController") as! LineChartViewController
         lineChartVc.dataArray = dataArray
         navigationController?.pushViewController(lineChartVc, animated: true)
