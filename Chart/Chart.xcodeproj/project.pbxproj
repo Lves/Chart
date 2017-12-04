@@ -11,6 +11,8 @@
 		6C0B7EBC1FD3FC280079C7A4 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B7EBB1FD3FC280079C7A4 /* UIColor+Extension.swift */; };
 		6C0B7EBE1FD403F70079C7A4 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C0B7EBD1FD403F70079C7A4 /* MainViewController.swift */; };
 		6C54ED2A1FD0F3FB00D9C26E /* FloatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C54ED291FD0F3FB00D9C26E /* FloatView.swift */; };
+		6C59F8D81FD5567F00BB3289 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C59F8D71FD5567F00BB3289 /* UITextField+Extension.swift */; };
+		6C59F8DA1FD5628700BB3289 /* PieChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C59F8D91FD5628700BB3289 /* PieChartViewController.swift */; };
 		6C6915131FCFFF440010619C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6915121FCFFF440010619C /* AppDelegate.swift */; };
 		6C6915181FCFFF440010619C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6C6915161FCFFF440010619C /* Main.storyboard */; };
 		6C69151A1FCFFF440010619C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6C6915191FCFFF440010619C /* Assets.xcassets */; };
@@ -18,6 +20,9 @@
 		6C6915261FD004150010619C /* TextFieldCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C6915241FD004150010619C /* TextFieldCollectionViewCell.swift */; };
 		6C6915271FD004150010619C /* TextFieldCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C6915251FD004150010619C /* TextFieldCollectionViewCell.xib */; };
 		6C97BF121FD54920006CA6A4 /* LineChartEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C97BF111FD54920006CA6A4 /* LineChartEditViewController.swift */; };
+		6C97BF171FD54ED6006CA6A4 /* PieEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C97BF161FD54ED6006CA6A4 /* PieEditViewController.swift */; };
+		6C97BF1A1FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C97BF181FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.swift */; };
+		6C97BF1B1FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C97BF191FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.xib */; };
 		C8D3B0C657C7D805C7C6CE91 /* Pods_Chart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41053A73B4167F60F7EEFF10 /* Pods_Chart.framework */; };
 /* End PBXBuildFile section */
 
@@ -40,6 +45,8 @@
 		6C0B7EBB1FD3FC280079C7A4 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		6C0B7EBD1FD403F70079C7A4 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		6C54ED291FD0F3FB00D9C26E /* FloatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatView.swift; sourceTree = "<group>"; };
+		6C59F8D71FD5567F00BB3289 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		6C59F8D91FD5628700BB3289 /* PieChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartViewController.swift; sourceTree = "<group>"; };
 		6C69150F1FCFFF440010619C /* Chart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chart.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C6915121FCFFF440010619C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6C6915171FCFFF440010619C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -49,6 +56,9 @@
 		6C6915241FD004150010619C /* TextFieldCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldCollectionViewCell.swift; sourceTree = "<group>"; };
 		6C6915251FD004150010619C /* TextFieldCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextFieldCollectionViewCell.xib; sourceTree = "<group>"; };
 		6C97BF111FD54920006CA6A4 /* LineChartEditViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartEditViewController.swift; sourceTree = "<group>"; };
+		6C97BF161FD54ED6006CA6A4 /* PieEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieEditViewController.swift; sourceTree = "<group>"; };
+		6C97BF181FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoTextfieldsTableViewCell.swift; sourceTree = "<group>"; };
+		6C97BF191FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TwoTextfieldsTableViewCell.xib; sourceTree = "<group>"; };
 		C5B77D3B760B8E0C45BE2B06 /* Pods-Chart.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart.release.xcconfig"; path = "Pods/Target Support Files/Pods-Chart/Pods-Chart.release.xcconfig"; sourceTree = "<group>"; };
 		FD03CC89553269FBECB55349 /* Pods-Chart.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Chart.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Chart/Pods-Chart.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +95,8 @@
 		6C0B7EB51FD3E6BA0079C7A4 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6C97BF151FD54CDF006CA6A4 /* PieChart */,
+				6C97BF131FD54CA9006CA6A4 /* BarChart */,
 				6C0B7EBA1FD3FBF70079C7A4 /* Extension */,
 				6C0B7EB61FD3E6BA0079C7A4 /* LineChart */,
 				6C0B7EBD1FD403F70079C7A4 /* MainViewController.swift */,
@@ -105,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				6C0B7EBB1FD3FC280079C7A4 /* UIColor+Extension.swift */,
+				6C59F8D71FD5567F00BB3289 /* UITextField+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -141,6 +154,24 @@
 				6C54ED291FD0F3FB00D9C26E /* FloatView.swift */,
 			);
 			path = Chart;
+			sourceTree = "<group>";
+		};
+		6C97BF131FD54CA9006CA6A4 /* BarChart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = BarChart;
+			sourceTree = "<group>";
+		};
+		6C97BF151FD54CDF006CA6A4 /* PieChart */ = {
+			isa = PBXGroup;
+			children = (
+				6C97BF161FD54ED6006CA6A4 /* PieEditViewController.swift */,
+				6C97BF181FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.swift */,
+				6C97BF191FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.xib */,
+				6C59F8D91FD5628700BB3289 /* PieChartViewController.swift */,
+			);
+			path = PieChart;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C97BF1B1FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.xib in Resources */,
 				6C6915271FD004150010619C /* TextFieldCollectionViewCell.xib in Resources */,
 				6C69151D1FCFFF440010619C /* LaunchScreen.storyboard in Resources */,
 				6C69151A1FCFFF440010619C /* Assets.xcassets in Resources */,
@@ -279,11 +311,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C0B7EBE1FD403F70079C7A4 /* MainViewController.swift in Sources */,
+				6C97BF171FD54ED6006CA6A4 /* PieEditViewController.swift in Sources */,
+				6C97BF1A1FD550FD006CA6A4 /* TwoTextfieldsTableViewCell.swift in Sources */,
 				6C6915261FD004150010619C /* TextFieldCollectionViewCell.swift in Sources */,
 				6C6915131FCFFF440010619C /* AppDelegate.swift in Sources */,
+				6C59F8D81FD5567F00BB3289 /* UITextField+Extension.swift in Sources */,
 				6C0B7EBC1FD3FC280079C7A4 /* UIColor+Extension.swift in Sources */,
 				6C97BF121FD54920006CA6A4 /* LineChartEditViewController.swift in Sources */,
 				6C54ED2A1FD0F3FB00D9C26E /* FloatView.swift in Sources */,
+				6C59F8DA1FD5628700BB3289 /* PieChartViewController.swift in Sources */,
 				6C0B7EB81FD3E6D60079C7A4 /* LineChartViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

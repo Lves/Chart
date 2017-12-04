@@ -11,6 +11,118 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Pie Edit View Controller-->
+        <scene sceneID="C1w-jG-JmH">
+            <objects>
+                <viewController storyboardIdentifier="PieEditViewController" id="auU-SA-0S9" customClass="PieEditViewController" customModule="Chart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="X6n-yA-acf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mDr-oi-6aZ">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.95294117647058818" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="auU-SA-0S9" id="aVt-bk-RsE"/>
+                                    <outlet property="delegate" destination="auU-SA-0S9" id="78l-nE-CWp"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mDr-oi-6aZ" firstAttribute="bottom" secondItem="fVF-uQ-Gl2" secondAttribute="bottom" id="0oh-cJ-eF4"/>
+                            <constraint firstItem="mDr-oi-6aZ" firstAttribute="leading" secondItem="fVF-uQ-Gl2" secondAttribute="leading" id="7WB-pK-whF"/>
+                            <constraint firstItem="mDr-oi-6aZ" firstAttribute="trailing" secondItem="fVF-uQ-Gl2" secondAttribute="trailing" id="PXq-8Y-s7r"/>
+                            <constraint firstItem="mDr-oi-6aZ" firstAttribute="top" secondItem="fVF-uQ-Gl2" secondAttribute="top" id="ze8-NK-clL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="fVF-uQ-Gl2"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="tQz-jG-Y24">
+                        <barButtonItem key="rightBarButtonItem" title="生成图表" id="aU4-fF-yAI">
+                            <connections>
+                                <action selector="toPieChartView:" destination="auU-SA-0S9" id="W4k-d6-sum"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="footerView" destination="3tv-Mm-VpR" id="Eqa-kT-Tol"/>
+                        <outlet property="tableView" destination="mDr-oi-6aZ" id="Cwk-0P-Wtk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aXc-za-Dsn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="3tv-Mm-VpR">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="78"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3On-6v-Hij">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="46"/>
+                            <color key="backgroundColor" red="0.1843137255" green="0.20784313730000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                            <state key="normal" title="+">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                            <connections>
+                                <action selector="addNewLine:" destination="auU-SA-0S9" eventType="touchUpInside" id="kMg-J5-VxJ"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="3On-6v-Hij" firstAttribute="leading" secondItem="Neo-wJ-zig" secondAttribute="leading" id="TQw-AQ-ST5"/>
+                        <constraint firstItem="3On-6v-Hij" firstAttribute="top" secondItem="Neo-wJ-zig" secondAttribute="top" id="Tdn-TH-AVO"/>
+                        <constraint firstItem="Neo-wJ-zig" firstAttribute="trailing" secondItem="3On-6v-Hij" secondAttribute="trailing" id="e3L-dz-fbA"/>
+                    </constraints>
+                    <viewLayoutGuide key="safeArea" id="Neo-wJ-zig"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="1388" y="-522.18890554722645"/>
+        </scene>
+        <!--Pie Chart View Controller-->
+        <scene sceneID="Hvt-aI-V3o">
+            <objects>
+                <viewController storyboardIdentifier="PieChartViewController" id="IMc-xt-VsP" customClass="PieChartViewController" customModule="Chart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PZW-DJ-kDf">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d6X-8q-eVM">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usY-OA-Jas" customClass="PieChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <color key="backgroundColor" red="0.1843137255" green="0.20784313730000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="usY-OA-Jas" secondAttribute="height" multiplier="1:1" id="ENj-xK-jEt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="usY-OA-Jas" firstAttribute="centerX" secondItem="d6X-8q-eVM" secondAttribute="centerX" id="LWA-BA-Yw8"/>
+                                    <constraint firstItem="usY-OA-Jas" firstAttribute="leading" secondItem="d6X-8q-eVM" secondAttribute="leading" id="Pdk-ZZ-5fs"/>
+                                    <constraint firstAttribute="trailing" secondItem="usY-OA-Jas" secondAttribute="trailing" id="Swb-aT-WQm"/>
+                                    <constraint firstAttribute="bottom" secondItem="usY-OA-Jas" secondAttribute="bottom" constant="125" id="b6S-UW-DSU"/>
+                                    <constraint firstItem="usY-OA-Jas" firstAttribute="top" secondItem="d6X-8q-eVM" secondAttribute="top" id="fep-w9-vRZ"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="d6X-8q-eVM" firstAttribute="leading" secondItem="WPs-Jk-8cS" secondAttribute="leading" id="2vb-v6-TbS"/>
+                            <constraint firstItem="d6X-8q-eVM" firstAttribute="trailing" secondItem="WPs-Jk-8cS" secondAttribute="trailing" id="K1o-ke-m9j"/>
+                            <constraint firstItem="d6X-8q-eVM" firstAttribute="top" secondItem="PZW-DJ-kDf" secondAttribute="top" id="eVI-mc-sMi"/>
+                            <constraint firstItem="d6X-8q-eVM" firstAttribute="bottom" secondItem="WPs-Jk-8cS" secondAttribute="bottom" id="wQ4-au-PUp"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="WPs-Jk-8cS"/>
+                    </view>
+                    <connections>
+                        <outlet property="pieChartView" destination="usY-OA-Jas" id="7v8-ir-RXF"/>
+                        <outlet property="scrollView" destination="d6X-8q-eVM" id="sIy-yg-35i"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6MM-1l-3bP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2142" y="-522"/>
+        </scene>
         <!--Line Chart Edit View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -48,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1390" y="-224"/>
+            <point key="canvasLocation" x="1414" y="446"/>
         </scene>
         <!--Line Chart View Controller-->
         <scene sceneID="d8K-gr-suy">
@@ -94,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n63-eu-XNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2085.5999999999999" y="-225.33733133433284"/>
+            <point key="canvasLocation" x="2127" y="446"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Hi-wU-rvN">
@@ -124,7 +236,7 @@
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z9W-mA-c2M">
                                 <rect key="frame" x="0.0" y="64" width="100" height="100"/>
-                                <color key="backgroundColor" red="0.2901960784" green="0.42745098040000001" blue="0.67450980390000004" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.98431372549019602" green="0.55686274509803924" blue="0.4392156862745098" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Azc-k4-2Wi"/>
                                     <constraint firstAttribute="height" constant="100" id="SF4-JV-g20"/>
@@ -137,10 +249,27 @@
                                     <segue destination="BYZ-38-t0r" kind="push" id="Sud-XA-hTm"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfH-bJ-Deg">
+                                <rect key="frame" x="100" y="64" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.73333333333333328" blue="0.66666666666666663" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="a0V-yk-DB4"/>
+                                    <constraint firstAttribute="width" constant="100" id="pCc-j8-W9t"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="饼图">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="auU-SA-0S9" kind="push" id="UUw-8n-1Vb"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="z9W-mA-c2M" firstAttribute="leading" secondItem="Wre-3E-De3" secondAttribute="leading" id="482-MA-6fy"/>
+                            <constraint firstItem="gfH-bJ-Deg" firstAttribute="leading" secondItem="z9W-mA-c2M" secondAttribute="trailing" id="HnO-nA-Auf"/>
+                            <constraint firstItem="gfH-bJ-Deg" firstAttribute="top" secondItem="Wre-3E-De3" secondAttribute="top" id="PCZ-Dr-NZ6"/>
                             <constraint firstItem="z9W-mA-c2M" firstAttribute="top" secondItem="Wre-3E-De3" secondAttribute="top" id="zbB-VJ-gne"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wre-3E-De3"/>

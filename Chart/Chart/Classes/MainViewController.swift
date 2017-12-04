@@ -15,6 +15,7 @@ struct ColorTheme {
     static let LineGray = UIColor.white.withAlphaComponent(0.15)
     static let LineOrange = UIColor(hex6: 0xfd734c)
     static let TextFieldCursor = UIColor(hex6: 0xfd734c)
+    static let TableViewSeparatorColor = UIColor(hex6: 0xe7eef5)
 }
 
 class MainViewController: UIViewController {
