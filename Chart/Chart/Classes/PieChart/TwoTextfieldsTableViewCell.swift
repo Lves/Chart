@@ -24,7 +24,7 @@ class TwoTextfieldsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    var pieChartData:PieChartData?{
+    var pieChartData:PieChartDataModel?{
         didSet{
             lblIndex.text = "\(pieChartData?.index ?? 0)"
             nameTextField.text = pieChartData?.name ?? ""

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public struct PieChartData{
+public struct PieChartDataModel{
     var index:Int = 0
     var name:String?
     var value:String?
@@ -19,7 +19,7 @@ class PieEditViewController: UIViewController,UITableViewDataSource,UITableViewD
     @IBOutlet var footerView: UIView!
     @IBOutlet var btnAdd: UIButton!
     @IBOutlet weak var tableView: UITableView!
-    var dataArray:[PieChartData] = []
+    var dataArray:[PieChartDataModel] = []
     
     struct InnerConst {
         static let CellIdentifier = "TwoTextfieldsTableViewCell"
@@ -35,7 +35,7 @@ class PieEditViewController: UIViewController,UITableViewDataSource,UITableViewD
         tableView.tableFooterView = footerView
         
         
-        dataArray = [PieChartData(),PieChartData()]
+        dataArray = [PieChartDataModel(),PieChartDataModel()]
         tableView.reloadData()
     }
     
@@ -71,11 +71,28 @@ class PieEditViewController: UIViewController,UITableViewDataSource,UITableViewD
         view.backgroundColor = UIColor.clear
         return view
     }
+    //MARK: - 滑动删除
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        return .delete
+    }
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        tableView.setEditing(false, animated: true)
+        if editingStyle == .delete {
+            dataArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    
+    
     //MARK: - Action
     
     @IBAction func addNewLine(_ sender: Any) {
 
-        dataArray.append(PieChartData())
+        dataArray.append(PieChartDataModel())
         tableView.reloadData()
         let indexPath = IndexPath(row: dataArray.count-1, section: 0)
         tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
