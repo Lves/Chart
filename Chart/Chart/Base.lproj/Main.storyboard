@@ -75,7 +75,7 @@
                     <viewLayoutGuide key="safeArea" id="Neo-wJ-zig"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="1388" y="-522.18890554722645"/>
+            <point key="canvasLocation" x="1369" y="-224"/>
         </scene>
         <!--Pie Chart View Controller-->
         <scene sceneID="Hvt-aI-V3o">
@@ -90,7 +90,7 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="usY-OA-Jas" customClass="PieChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                        <color key="backgroundColor" red="0.1843137255" green="0.20784313730000001" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="usY-OA-Jas" secondAttribute="height" multiplier="1:1" id="ENj-xK-jEt"/>
                                         </constraints>
@@ -121,7 +121,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6MM-1l-3bP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2142" y="-522"/>
+            <point key="canvasLocation" x="2194" y="-224"/>
         </scene>
         <!--Line Chart Edit View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1414" y="446"/>
+            <point key="canvasLocation" x="530" y="537"/>
         </scene>
         <!--Line Chart View Controller-->
         <scene sceneID="d8K-gr-suy">
@@ -175,7 +175,6 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Unz-um-Bfe" customClass="LineChartView" customModule="Charts">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
-                                        <color key="backgroundColor" red="0.18431372549019609" green="0.20784313725490194" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Unz-um-Bfe" secondAttribute="height" multiplier="1:1" id="2JI-d8-TXD"/>
                                         </constraints>
@@ -206,7 +205,52 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="n63-eu-XNo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2127" y="446"/>
+            <point key="canvasLocation" x="17" y="1200"/>
+        </scene>
+        <!--Bar Chart View Controller-->
+        <scene sceneID="h2i-5d-7nX">
+            <objects>
+                <viewController storyboardIdentifier="BarChartViewController" id="n5y-q0-8Eb" customClass="BarChartViewController" customModule="Chart" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="joA-zZ-jDb">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="21U-Te-QP1">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7x3-uX-89n" customClass="BarChartView" customModule="Charts">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="375"/>
+                                        <color key="backgroundColor" red="0.1333333333" green="0.1333333333" blue="0.1333333333" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="7x3-uX-89n" secondAttribute="height" multiplier="1:1" id="edq-IU-5ey"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="7x3-uX-89n" firstAttribute="leading" secondItem="21U-Te-QP1" secondAttribute="leading" id="DnB-V6-y3r"/>
+                                    <constraint firstAttribute="bottom" secondItem="7x3-uX-89n" secondAttribute="bottom" constant="125" id="ZXS-Pc-xdt"/>
+                                    <constraint firstAttribute="trailing" secondItem="7x3-uX-89n" secondAttribute="trailing" id="lx8-dK-qR1"/>
+                                    <constraint firstItem="7x3-uX-89n" firstAttribute="top" secondItem="21U-Te-QP1" secondAttribute="top" id="vQ3-fC-fL1"/>
+                                    <constraint firstItem="7x3-uX-89n" firstAttribute="centerX" secondItem="21U-Te-QP1" secondAttribute="centerX" id="yMF-zV-Ugp"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="21U-Te-QP1" firstAttribute="leading" secondItem="e1U-MZ-QQ8" secondAttribute="leading" id="7no-K4-wpX"/>
+                            <constraint firstItem="21U-Te-QP1" firstAttribute="top" secondItem="joA-zZ-jDb" secondAttribute="top" id="F8J-0A-YFf"/>
+                            <constraint firstItem="21U-Te-QP1" firstAttribute="trailing" secondItem="e1U-MZ-QQ8" secondAttribute="trailing" id="Giu-W9-g2G"/>
+                            <constraint firstItem="21U-Te-QP1" firstAttribute="bottom" secondItem="e1U-MZ-QQ8" secondAttribute="bottom" id="sab-RS-afQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="e1U-MZ-QQ8"/>
+                    </view>
+                    <connections>
+                        <outlet property="barChartView" destination="7x3-uX-89n" id="xFI-G3-Oly"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kNK-ZI-qEh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="865" y="1200"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="2Hi-wU-rvN">
@@ -246,7 +290,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="BYZ-38-t0r" kind="push" id="Sud-XA-hTm"/>
+                                    <segue destination="BYZ-38-t0r" kind="push" identifier="toLineChart" id="Sud-XA-hTm"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gfH-bJ-Deg">
@@ -264,12 +308,29 @@
                                     <segue destination="auU-SA-0S9" kind="push" id="UUw-8n-1Vb"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cnp-0z-vfg">
+                                <rect key="frame" x="200" y="64" width="100" height="100"/>
+                                <color key="backgroundColor" red="0.99607843137254903" green="0.78431372549019607" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="9t0-ld-2x9"/>
+                                    <constraint firstAttribute="height" constant="100" id="lB5-f8-AdX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="柱状图">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="push" identifier="toBarChart" id="ZDN-s6-bTo"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.95294117647058818" green="0.96470588235294119" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="z9W-mA-c2M" firstAttribute="leading" secondItem="Wre-3E-De3" secondAttribute="leading" id="482-MA-6fy"/>
                             <constraint firstItem="gfH-bJ-Deg" firstAttribute="leading" secondItem="z9W-mA-c2M" secondAttribute="trailing" id="HnO-nA-Auf"/>
                             <constraint firstItem="gfH-bJ-Deg" firstAttribute="top" secondItem="Wre-3E-De3" secondAttribute="top" id="PCZ-Dr-NZ6"/>
+                            <constraint firstItem="Cnp-0z-vfg" firstAttribute="leading" secondItem="gfH-bJ-Deg" secondAttribute="trailing" id="mzF-PU-SXS"/>
+                            <constraint firstItem="Cnp-0z-vfg" firstAttribute="top" secondItem="Wre-3E-De3" secondAttribute="top" id="wop-6r-Mka"/>
                             <constraint firstItem="z9W-mA-c2M" firstAttribute="top" secondItem="Wre-3E-De3" secondAttribute="top" id="zbB-VJ-gne"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Wre-3E-De3"/>
@@ -281,4 +342,7 @@
             <point key="canvasLocation" x="530.39999999999998" y="-224.4377811094453"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="ZDN-s6-bTo"/>
+    </inferredMetricsTieBreakers>
 </document>

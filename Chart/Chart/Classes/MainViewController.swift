@@ -40,6 +40,13 @@ class MainViewController: UIViewController {
        
         
     }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //跳转多行编辑页
+        if segue.identifier == EditType.toLineChart.rawValue || segue.identifier == EditType.toBarChart.rawValue{
+            let nextVc = segue.destination as? LineChartEditViewController
+            nextVc?.type = EditType(rawValue: segue.identifier!)!
+        }
+    }
 
 
 }

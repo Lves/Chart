@@ -8,10 +8,18 @@
 
 import UIKit
 
-class LineChartEditViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
+enum EditType:String {
+    case toBarChart
+    case toLineChart
+}
 
+class LineChartEditViewController:UIViewController,UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     @IBOutlet weak var scrollView: UIScrollView!
     var collectionView: UICollectionView!
+    ///编辑页类型
+    var type:EditType = .toLineChart
+    
+    
     var dataArray:[[String]] = []
     var cols:Int = 3
     var rows:Int = 1
@@ -203,10 +211,17 @@ class LineChartEditViewController:UIViewController,UICollectionViewDelegate,UICo
     //MARK: - Action
     @IBAction func toLineChart(_ sender: Any) {
         view.endEditing(true)
-        let lineChartVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LineChartViewController") as! LineChartViewController
-        lineChartVc.dataArray = dataArray
-        navigationController?.pushViewController(lineChartVc, animated: true)
         
+        if type == .toLineChart {
+            let lineChartVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "LineChartViewController") as! LineChartViewController
+            lineChartVc.dataArray = dataArray
+            navigationController?.pushViewController(lineChartVc, animated: true)
+        }else if type == .toBarChart {
+            let barChartVc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "BarChartViewController") as! BarChartViewController
+            barChartVc.dataArray = dataArray
+            navigationController?.pushViewController(barChartVc, animated: true)
+        }
+ 
     }
     
 }
