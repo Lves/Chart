@@ -32,6 +32,9 @@ class LineChartViewController: UIViewController,ChartViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "图表"
+        
+        
+        
         lineChartView.delegate = self
         let xAxis = lineChartView.xAxis
         xAxis.avoidFirstLastClippingEnabled = true              //是否允许首末Lable偏移
@@ -39,8 +42,14 @@ class LineChartViewController: UIViewController,ChartViewDelegate {
         xAxis.labelFont = UIFont.systemFont(ofSize: 11)
         xAxis.drawGridLinesEnabled = false                       //是否显示x轴网格线
         xAxis.labelTextColor = Constant.kLableTextColor          //label颜色
-        xAxis.axisLineWidth = 0                                  //线宽度
+        xAxis.axisLineWidth = 0.5                                  //线宽度
         xAxis.yOffset = 8                                        //xlabel 距离x轴线的距离
+        xAxis.labelCount = dataArray?.first?.count ?? 1
+        xAxis.granularity = 1
+        xAxis.axisMinimum = 0.95
+
+        
+        xAxis.valueFormatter = self
         
         let leftAxis = lineChartView.leftAxis
         leftAxis.axisLineWidth = 0.5                             //左侧线宽度
@@ -60,6 +69,7 @@ class LineChartViewController: UIViewController,ChartViewDelegate {
         
         
         if let dataArray = dataArray {
+            
             var dataSets:[IChartDataSet] = []
             for row in 1..<dataArray.count {
                 let nextLine = dataArray[row]
@@ -69,10 +79,12 @@ class LineChartViewController: UIViewController,ChartViewDelegate {
                 })
                 let color = Constant.colors[row%10]
                 let set = getLineDataSet(values: values,color: color, label: nextLine[0])
+                
                 dataSets.append(set)
             }
             let data = LineChartData(dataSets: dataSets)
             lineChartView.data = data
+            lineChartView.animate(xAxisDuration: 0.3)
         }
     }
     
@@ -90,11 +102,24 @@ class LineChartViewController: UIViewController,ChartViewDelegate {
         set.circleRadius = 4.0
         set.circleColors = [color]
         set.lineWidth = 1.5
+
+        
         set.drawValuesEnabled = true //是否显示数字
         set.drawHorizontalHighlightIndicatorEnabled = false //是否显示水平高亮线
         set.highlightColor = UIColor.white
         set.fillFormatter = ChartLvesFillFormatter()
         return set
+    }
+}
+
+extension LineChartViewController: IAxisValueFormatter{
+    func stringForValue(_ value: Double, axis: AxisBase?) -> String {
+        if let dataArray = dataArray {
+            if let dataLabels = dataArray.first {
+                return dataLabels[min(max(Int(value), 0), dataLabels.count - 1)]
+            }
+        }
+        return ""
     }
 }
 
@@ -106,4 +131,5 @@ public class ChartLvesFillFormatter: NSObject, IFillFormatter
     {
         return CGFloat(dataProvider.chartYMin)
     }
+
 }

@@ -38,7 +38,8 @@ class BarChartViewController: UIViewController, ChartViewDelegate{
         xAxis.drawGridLinesEnabled = false                       //是否显示x轴网格线
         xAxis.labelTextColor = Constant.kLableTextColor          //label颜色
         xAxis.axisLineWidth = 0                                  //线宽度
-        xAxis.yOffset = 8                                        //xlabel 距离x轴线的距离
+//        xAxis.yOffset = 8                                        //xlabel 距离x轴线的距离
+        xAxis.granularity = 1
         
         let leftAxis = barChartView.leftAxis
         leftAxis.axisLineWidth = 0.5                             //左侧线宽度
